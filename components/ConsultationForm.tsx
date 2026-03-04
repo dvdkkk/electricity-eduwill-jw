@@ -66,35 +66,34 @@ export const ConsultationForm: React.FC = () => {
     fetchIp();
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isAgreed) {
         alert("개인정보 수집 및 이용에 동의해야 합니다.");
         return;
     }
-    setStatus("SUBMITTING");
     
+    // 1. 데이터 준비
     const form = e.currentTarget;
     const formData = new FormData(form);
     
-    try {
-      const response = await fetch("https://inputhaven.com/api/v1/submit", {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-      
-      if (response.ok) {
-        setStatus("SUCCESS");
-        form.reset();
-      } else {
-        setStatus("ERROR");
-      }
-    } catch (error) {
-      setStatus("ERROR");
-    }
+    // 2. 즉시 성공 처리 (Optimistic UI)
+    setStatus("SUCCESS");
+    
+    // 3. 백그라운드 전송
+    fetch("https://inputhaven.com/api/v1/submit", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+      keepalive: true // 페이지 이동/닫기 시에도 전송 유지
+    }).catch(error => {
+      console.error("Background submission error:", error);
+    });
+    
+    // 4. 폼 초기화
+    form.reset();
   };
 
   return (
