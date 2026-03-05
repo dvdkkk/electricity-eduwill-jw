@@ -74,7 +74,7 @@ export const Navigation: React.FC = () => {
             </a>
           ))}
           <a 
-            href="tel:18775280" 
+            href="tel:15336176" 
             onClick={(e) => {
               // PC 환경(1024px 이상)에서는 스크롤, 모바일에서는 전화 연결
               // handleNavClick에는 e.preventDefault()가 있어 링크 이동(전화)을 막고 스크롤합니다.
@@ -87,7 +87,7 @@ export const Navigation: React.FC = () => {
             className="flex items-center gap-2 bg-yellow-400 text-black px-5 py-2 rounded-full font-bold text-lg hover:bg-yellow-300 transition-transform hover:scale-105"
           >
             <PhoneCall size={20} />
-            1877-5280
+            1533-6176
           </a>
         </div>
 

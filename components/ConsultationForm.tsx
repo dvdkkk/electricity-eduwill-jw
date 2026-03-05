@@ -121,7 +121,7 @@ export const ConsultationForm: React.FC = () => {
                       </div>
                       <div>
                           <p className="text-xs font-bold opacity-70">교육문의</p>
-                          <a href="tel:18775280" className="text-2xl font-black block hover:opacity-80 transition-opacity md:pointer-events-none md:cursor-default">1877-5280</a>
+                          <a href="tel:15336176" className="text-2xl font-black block hover:opacity-80 transition-opacity md:pointer-events-none md:cursor-default">1533-6176</a>
                       </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -152,7 +152,7 @@ export const ConsultationForm: React.FC = () => {
                   </div>
               ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
-                  <input type="hidden" name="_form_id" value="fa4224412f1d57069c117fc800192ff6" />
+                  <input type="hidden" name="_form_id" value="94ff5addd7da822e8723875fb1685ca9" />
                   {/* IP 주소 수집용 히든 필드 (user_ip) */}
                   <input type="hidden" name="user_ip" value={ipAddress} />
 
